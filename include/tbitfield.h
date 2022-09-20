@@ -13,7 +13,7 @@
 using namespace std;
 
 typedef unsigned int TELEM;
-
+static int BlockSize = 8*sizeof(TELEM); // размер блока
 class TBitField
 {
 private:
@@ -28,7 +28,7 @@ public:
   TBitField(int len);                //                                   (#О1)
   TBitField(const TBitField &bf);    //                                   (#П1)
   ~TBitField();                      //                                    (#С)
-
+  
   // доступ к битам
   int GetLength(void) const;      // получить длину (к-во битов)           (#О)
   void SetBit(const int n);       // установить бит                       (#О4)
