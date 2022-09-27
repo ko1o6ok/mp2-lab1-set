@@ -197,18 +197,23 @@ TBitField TBitField::operator~(void) // отрицание
 
 istream &operator>>(istream &istr, TBitField &bf) // ввод
 {
-    for (int i = 0; i < bf.MemLen; i++)
+    cout << "Please, input one bit per string:" << endl;
+    for (int i = 0; i < bf.BitLen; i++)
     {
-        istr>> bf.pMem[i];
+        short a;
+        istr>> a;
+        if(a>0)
+            bf.SetBit(i);
     }
     return istr;
 }
 
 ostream &operator<<(ostream &ostr, const TBitField &bf) // вывод
 {
-    for (int i = 0; i < bf.MemLen; i++)
+    for (int i = 0; i < bf.BitLen; i++)
     {
-        ostr << bf.pMem[i];
+        ostr << bf.GetBit(i);
     }
+    ostr << endl;
     return ostr;
 }

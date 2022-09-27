@@ -119,21 +119,12 @@ TSet TSet::operator~(void) // дополнение
 
 istream& operator>>(istream& istr, TSet& s) // ввод
 {
-    for (int i = 0; i < s.BitField.GetLength(); i++)
-    {
-        int t;
-        istr >> t;
-        if (t > 0)
-            s.BitField.SetBit(i);
-    }
+    istr >> s.BitField;
     return istr;
 }
 
 ostream& operator<<(ostream& ostr, const TSet& s) // вывод
 {
-    for (int i = 0; i < s.BitField.GetLength(); i++)
-    {
-        ostr << s.BitField.GetBit(i);
-    }
+    ostr << s.BitField;
     return ostr;
 }
